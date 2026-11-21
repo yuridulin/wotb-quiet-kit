@@ -1,0 +1,121 @@
+Header:
+    version: "106"
+ImportedPackages:
+- "~res:/UI/Screens3/Lobby/Common/Button.yaml"
+Prototypes:
+-   class: "UIControl"
+    name: "PrmpBanner"
+    visible: false
+    size: [960.000000, 80.000000]
+    input: false
+    classes: "button-ok-sound"
+    components:
+        SizePolicy:
+            horizontalPolicy: "PercentOfParent"
+            verticalPolicy: "FixedSize"
+            verticalValue: 80.000000
+        UIDataParamsComponent:
+            params:
+            - ["PrmpOfferBanner", "banner", "null", "{ }"]
+            events:
+            - "BANNER_ACTION"
+            - "SHOW_OFFER"
+        Sound: {}
+        StyleSheet:
+            styles: "~res:/UI/Screens3/ButtonSound.style.yaml"
+    children:
+    -   class: "UIControl"
+        name: "Background"
+        input: false
+        components:
+            Background:
+                drawType: "DRAW_SCALE_TO_RECT"
+            UIUrlImageComponent: {}
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "PercentOfParent"
+        bindings:
+        - ["UIUrlImageComponent.imageUrl", "banner.backgroundUrl"]
+    -   class: "UIControl"
+        name: "Image"
+        components:
+            Background:
+                drawType: "DRAW_SCALE_PROPORTIONAL"
+            UIUrlImageComponent: {}
+            Anchor:
+                hCenterAnchorEnabled: true
+                vCenterAnchorEnabled: true
+            SizePolicy:
+                horizontalPolicy: "PercentOfContent"
+                verticalPolicy: "PercentOfParent"
+            UIInputEventComponent:
+                onTouchUpInside: "BANNER_ACTION"
+        bindings:
+        - ["UIUrlImageComponent.imageUrl", "banner.imageUrl"]
+    -   class: "UIControl"
+        name: "TitleHolder"
+        input: false
+        components:
+            Anchor:
+                leftAnchorEnabled: true
+                leftAnchor: 32.000000
+                vCenterAnchorEnabled: true
+            LinearLayout:
+                orientation: "TopDown"
+            SizePolicy:
+                horizontalPolicy: "PercentOfMaxChild"
+                verticalPolicy: "PercentOfChildrenSum"
+            StyleSheet:
+                styles: "~res:/UI/Screens3/Font.style.yaml"
+        children:
+        -   class: "UIControl"
+            name: "Title"
+            input: false
+            classes: "t-subtitle bold white-wild-sand-text"
+            components:
+                UITextComponent: {}
+                SizePolicy:
+                    horizontalPolicy: "PercentOfContent"
+                    verticalPolicy: "PercentOfContent"
+            bindings:
+            - ["visible", "not empty(banner.title)"]
+            - ["UITextComponent.text", "banner.title"]
+        -   class: "UIControl"
+            name: "SubTitle"
+            input: false
+            classes: "t-caption regular white-wild-sand-text"
+            components:
+                UITextComponent: {}
+                SizePolicy:
+                    horizontalPolicy: "PercentOfContent"
+                    verticalPolicy: "PercentOfContent"
+            bindings:
+            - ["visible", "not empty(banner.subtitle)"]
+            - ["UITextComponent.text", "banner.subtitle"]
+    -   prototype: "Button/Button"
+        name: "BuyButton"
+        components:
+            Anchor:
+                rightAnchorEnabled: true
+                rightAnchor: 32.000000
+                vCenterAnchorEnabled: true
+            SizePolicy:
+                horizontalPolicy: "FixedSize"
+                horizontalValue: 196.000000
+            UIAttachLayoutMasterComponent:
+                attachId: "PRMP_OFFER_BUTTON"
+            UIDataParamsComponent:
+                args:
+                    "caption": "banner.buttonText"
+                    "type": "eButtonType.ALTERNATIVE"
+                eventActions:
+                - ["ON_CLICK_BUTTON", "SHOW_OFFER", ""]
+        children:
+        -   class: "UIParticles"
+            name: "GlowPurchase"
+            position: [98.000000, 24.000000]
+            size: [32.000000, 32.000000]
+            pivot: [0.500000, 0.500000]
+            input: false
+            effectPath: "~res:/3d/FX/UI/BattlePass/BlinkPurchase.sc2"
+            autoStart: true

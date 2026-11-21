@@ -1,0 +1,177 @@
+Header:
+    version: 144
+Prototypes:
+-   class: "UIControl"
+    name: "PremShopBanner"
+    visible: false
+    size: [792.000000, 180.000000]
+    input: true
+    classes: "prem-shop-banner button-open-sound"
+    components:
+        SizePolicy:
+            horizontalPolicy: "PercentOfParent"
+            verticalPolicy: "FixedSize"
+            verticalValue: 160.000000
+        UIInputEventComponent:
+            onTouchUpInside: "ON_PREM_SHOP_CLICKED"
+        UIDataParamsComponent:
+            params:
+            - ["string", "backgroundUrl", "\"\"", "\"\""]
+            events:
+            - "ON_PREM_SHOP_CLICKED"
+        Sound: {}
+        StyleSheet:
+            styles: "~res:/UI/Screens3/Common/Touch.style.yaml;~res:/UI/Screens3/ButtonSound.style.yaml"
+    children:
+    -   class: "UIControl"
+        name: "Content"
+        pivot: [0.500000, 0.500000]
+        input: false
+        classes: "content-area"
+        components:
+            ClipContent: {}
+            Anchor:
+                hCenterAnchorEnabled: true
+                topAnchorEnabled: true
+            SizePolicy:
+                horizontalPolicy: "PercentOfParent"
+                verticalPolicy: "FixedSize"
+                verticalValue: 144.000000
+        children:
+        -   class: "UIControl"
+            name: "Background"
+            input: false
+            components:
+                Background:
+                    drawType: "DRAW_SCALE_PROPORTIONAL_ONE"
+                UIUrlImageComponent:
+                    checkUpdate: true
+                Anchor:
+                    hCenterAnchorEnabled: true
+                SizePolicy:
+                    horizontalPolicy: "FixedSize"
+                    horizontalValue: 1104.000000
+                    verticalPolicy: "FixedSize"
+                    verticalValue: 144.000000
+            bindings:
+            - ["UIUrlImageComponent.imageUrl", "backgroundUrl"]
+        -   class: "UIControl"
+            name: "Gradient"
+            visible: false
+            input: false
+            components:
+                Background:
+                    drawType: "DRAW_FILL"
+                UIGradientComponent:
+                    startColor: [0.000000, 0.000000, 0.000000, 0.588235]
+                    finishColor: [0.000000, 0.000000, 0.000000, 0.588235]
+                Anchor:
+                    leftAnchorEnabled: true
+                SizePolicy:
+                    horizontalPolicy: "FixedSize"
+                    horizontalValue: 350.000000
+                    verticalPolicy: "PercentOfParent"
+        -   class: "UIControl"
+            name: "Fade"
+            input: false
+            classes: "hover color=white-wild-sand-10-bg"
+            components:
+                Background:
+                    drawType: "DRAW_FILL"
+                UIOpacityComponent: {}
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    verticalPolicy: "PercentOfParent"
+                StyleSheet:
+                    styles: "~res:/UI/Screens3/Color.style.yaml;~res:/UI/Screens3/Common/Hover.style.yaml"
+        -   class: "UIControl"
+            name: "Content"
+            input: false
+            components:
+                LinearLayout:
+                    padding: "24; 40"
+                    spacing: 20.000000
+                SizePolicy:
+                    horizontalPolicy: "PercentOfParent"
+                    verticalPolicy: "PercentOfParent"
+            children:
+            -   class: "UIControl"
+                name: "Text"
+                input: false
+                components:
+                    Anchor:
+                        topAnchorEnabled: true
+                        topAnchor: 27.000000
+                    LinearLayout:
+                        orientation: "TopDown"
+                        spacing: 4.000000
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfParent"
+                        verticalPolicy: "PercentOfChildrenSum"
+                children:
+                -   class: "UIControl"
+                    name: "Title"
+                    input: false
+                    classes: "t-content-h1 bold color=yellow-submarine-text"
+                    components:
+                        UITextComponent:
+                            text: "PremShopBanner/Title"
+                            colorInheritType: "COLOR_IGNORE_PARENT"
+                            fitting: "FITTING_REDUCE"
+                            align: ["LEFT", "VCENTER"]
+                            useRtlAlign: "USE_BY_CONTENT"
+                        SizePolicy:
+                            horizontalPolicy: "PercentOfParent"
+                            verticalPolicy: "PercentOfContent"
+                        StyleSheet:
+                            styles: "~res:/UI/Screens3/Font.style.yaml;~res:/UI/Screens3/Color.style.yaml"
+                -   class: "UIControl"
+                    name: "Subtitle"
+                    input: false
+                    classes: "t-headline bold color=yellow-submarine-text"
+                    components:
+                        UITextComponent:
+                            text: "PremShopBanner/Subtitle"
+                            colorInheritType: "COLOR_IGNORE_PARENT"
+                            multiline: "MULTILINE_ENABLED"
+                            align: ["LEFT", "VCENTER"]
+                            useRtlAlign: "USE_BY_CONTENT"
+                        SizePolicy:
+                            horizontalPolicy: "PercentOfParent"
+                            verticalPolicy: "PercentOfContent"
+                        StyleSheet:
+                            styles: "~res:/UI/Screens3/Font.style.yaml;~res:/UI/Screens3/Color.style.yaml"
+            -   class: "UIControl"
+                name: "ButtonHolder"
+                input: false
+                components:
+                    Anchor:
+                        vCenterAnchorEnabled: true
+                    SizePolicy:
+                        horizontalPolicy: "PercentOfMaxChild"
+                        verticalPolicy: "PercentOfMaxChild"
+                    UIChildComponent0:
+                        prototypePath: "~res:/UI/Screens3/Lobby/Common/Button.yaml"
+                        args:
+                            "sound": "eButtonSound.OPEN"
+                            "rightContent": "ExternalLinkIcon"
+                            "type": "eButtonType.ALTERNATIVE"
+                            "caption": "\"PremShopBanner/Buy\""
+                        eventActions:
+                        - ["ON_CLICK_BUTTON", "ON_PREM_SHOP_CLICKED", ""]
+Slots:
+-   class: "UIControl"
+    name: "ExternalLinkIcon"
+    size: [32.000000, 32.000000]
+    input: false
+    components:
+        Background:
+            drawType: "DRAW_SCALE_PROPORTIONAL"
+            sprite: "~res:/Gfx/Lobby/icons/icon_external-link_square"
+        Anchor:
+            vCenterAnchorEnabled: true
+        SizePolicy:
+            horizontalPolicy: "FixedSize"
+            horizontalValue: 24.000000
+            verticalPolicy: "FixedSize"
+            verticalValue: 24.000000

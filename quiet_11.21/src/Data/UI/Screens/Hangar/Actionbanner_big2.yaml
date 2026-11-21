@@ -1,0 +1,44 @@
+Header:
+    version: "24"
+Controls:
+-   class: "UIControl"
+    name: "Banner"
+    visible: false
+    size: [900.000000, 417.000000]
+    noInput: true
+    components:
+        Background:
+            sprite: "~res:/Gfx/Particles/UI/halloween_banner/baner2/2.psd"
+    children:
+    -   class: "UIParticles"
+        name: "fire"
+        position: [434.000000, 401.000000]
+        size: [32.000000, 32.000000]
+        pivot: [0.500000, 0.500000]
+        noInput: true
+        effectPath: "~res:/3d/FX/UI/halloween_banner/fire.sc2"
+        autoStart: true
+    -   class: "UIParticles"
+        name: "sparks"
+        position: [676.000000, 401.000000]
+        size: [32.000000, 32.000000]
+        pivot: [0.500000, 0.500000]
+        noInput: true
+        effectPath: "~res:/3d/FX/UI/halloween_banner/sparks.sc2"
+        autoStart: true
+    -   class: "UIParticles"
+        name: "noise"
+        position: [450.000000, 208.000000]
+        size: [32.000000, 32.000000]
+        pivot: [0.500000, 0.500000]
+        noInput: true
+        effectPath: "~res:/3d/FX/UI/halloween_banner/noise.sc2"
+        autoStart: true
+    -   class: "UIParticles"
+        name: "glow"
+        position: [450.000000, 208.000000]
+        size: [32.000000, 32.000000]
+        pivot: [0.500000, 0.500000]
+        noInput: true
+        effectPath: "~res:/3d/FX/UI/halloween_banner/glow.sc2"
+        autoStart: true

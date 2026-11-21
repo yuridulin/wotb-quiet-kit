@@ -1,0 +1,16 @@
+# Generated payloads, vendor binaries, archives and caches
+dist/
+agent_kit/downloads/
+agent_kit/payload/
+agent_kit/manifest.json
+agent_kit/SHA256SUMS.txt
+agent_kit/VERSION.txt
+agent_kit/__pycache__/
+quiet_11.21/payload/
+quiet_11.21/vendor/
+quiet_11.21/manifest.json
+quiet_11.21/dist/
+__pycache__/
+*.pyc
+*.zip
+gamepath.txt

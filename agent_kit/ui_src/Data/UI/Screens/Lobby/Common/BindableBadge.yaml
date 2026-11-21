@@ -1,0 +1,31 @@
+Header:
+    version: "83"
+Prototypes:
+-   class: "UIControl"
+    name: "Bagde"
+    size: [33.000000, 33.000000]
+    input: false
+    components:
+        UIOpacityComponent:
+            opacity: 0.15
+        Background:
+            sprite: "~res:/Gfx/UI/CommonUIElements/WhiteCircle"
+        UITextComponent:
+            colorInheritType: "COLOR_IGNORE_PARENT"
+            shadowOffset: [0.000000, 1.000000]
+            shadowColor: [0.000000, 0.000000, 0.000000, 0.752941]
+            fitting: "FITTING_REDUCE"
+        Anchor:
+            topAnchorEnabled: true
+            topAnchor: 5.000000
+        UIDataSourceComponent0:
+            source: "~res:/UI/Examples/Model/Lobby/Badge.model"
+        UIDataSourceComponent1:
+            sourceType: "File"
+            source: "~res:/UI/Screens/Lobby/Common/ViewModels/BadgeView.model"
+        StyleSheet:
+            styles: "~res:/UI/Screens/Fonts.yaml;~res:/UI/Screens/Lobby/Common/Styles/BadgeStyles.yaml"
+    bindings:
+    - ["visible", "count > 0"]
+    - ["classes", "typeStyle"]
+    - ["UITextComponent.text", "text"]

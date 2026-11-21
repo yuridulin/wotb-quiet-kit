@@ -1,0 +1,30 @@
+Header:
+    version: "99"
+Prototypes:
+-   class: "UIControl"
+    name: "PrmpOfferBannerWrapper"
+    visible: false
+    size: [960.000000, 80.000000]
+    input: false
+    components:
+        SizePolicy:
+            horizontalPolicy: "PercentOfParent"
+            verticalPolicy: "PercentOfFirstChild"
+        UIDataParamsComponent:
+            params:
+            - ["ePrmpOfferPlacement", "placement", "ePrmpOfferPlacement.BattlePass", "ePrmpOfferPlacement.BattlePass"]
+            - ["PrmpOffersData", "offerData", "null", "{ }"]
+            events:
+            - "BANNER_ACTION"
+            - "SHOW_OFFER(int64 id)"
+        UIDataLocalsComponent:
+            locals:
+            - ["bool", "placementOfferWithBanner", "offerData.placements.Contains(placement) and not offerData.placements[placement].offers.Empty() and not isNull(offerData.placements[placement].offers[0].banner)"]
+        UIChildComponent0:
+            condition: "placementOfferWithBanner"
+            prototypePath: "~res:/UI/Screens3/Lobby/Hangar/Offers/PRMP/PrmpOfferBanner.yaml"
+            args:
+                "banner": "offerData.placements[placement].offers[0].banner"
+            eventActions:
+            - ["SHOW_OFFER", "SHOW_OFFER", "offerData.placements[placement].offers[0].id"]
+            - ["BANNER_ACTION", "BANNER_ACTION", ""]
