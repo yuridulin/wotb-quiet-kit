@@ -3,6 +3,11 @@
 Goal: install three cosmetic parts on a local **World of Tanks Blitz 11.21.0**
 (PC, Steam/Wargaming) without transferring the large mod archives.
 
+**Distribution rule: this kit ships no mod archives and no payload.** All large
+files are downloaded from the URLs below. Python + `lz4` is only the local build
+tool used to repack DVPL; it is not a mod asset. Do not ask for or transfer a
+prebuilt payload.
+
 ## Latest version first
 
 Before downloading or building, check the latest release:

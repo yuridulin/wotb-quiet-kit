@@ -22,3 +22,4 @@ downloaded PC-WG archive. If the overlay hash differs, install with
 
 The large mod archives are not shipped with this kit; `bootstrap.py` fetches
 them and verifies their SHA-256. Only `ui_src/` (16 small YAML files) is local.
+Python is only the local DVPL build tool, not a mod file.
