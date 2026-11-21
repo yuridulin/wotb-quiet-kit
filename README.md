@@ -58,6 +58,23 @@ python agent_kit/make_zip.py
 To rebuild a direct install zip from a local source package, see
 `quiet_11.21/README.md` and `quiet_11.21/tools/make_dist.py`.
 
+## Release
+
+For a new game/mod version:
+
+```powershell
+python agent_kit/make_zip.py
+git add -A
+git commit -m "release: <version>"
+git tag v<version>
+git push origin main --tags
+gh release create v<version> dist/quiet_11.21_agent.zip --title "v<version>" --generate-notes
+```
+
+The release asset is the small agent kit; the large payload is not committed or
+attached. Bump `GAME_VERSION` in `agent_kit/bootstrap.py` and refresh
+`vendor/sound_mod` / `vendor/reticle` before tagging a new game version.
+
 ## Safety
 
 - Only cosmetic sound/UI/reticle resources.
