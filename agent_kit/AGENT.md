@@ -1,4 +1,7 @@
-# quiet_11.21 — agent build/install instructions
+# quiet_11.21 — local build implementation
+
+> The shareable artifact is [`../INSTRUCTION.md`](../INSTRUCTION.md). This file
+> documents the local implementation only; the recipient does not need it.
 
 Goal: install three cosmetic parts on a local **World of Tanks Blitz 11.21.0**
 (PC, Steam/Wargaming) without transferring the large mod archives.

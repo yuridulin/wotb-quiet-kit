@@ -1,4 +1,7 @@
-# quiet_11.21 — agent kit
+# quiet_11.21 — local implementation
+
+> The shareable artifact is [`../INSTRUCTION.md`](../INSTRUCTION.md). This folder
+> is the local build implementation and is not required to follow the instruction.
 
 Latest release: <https://github.com/yuridulin/wotb-quiet-kit/releases/latest>
 
