@@ -215,7 +215,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\update.ps1
 **Последний вариант:** <https://github.com/yuridulin/wotb-quiet-kit/releases/latest>  
 Перед установкой агент должен проверить latest release и взять оттуда `quiet_11.21_agent.zip`; версия в релизе должна совпадать с игрой.
 
-**Для агента (рекомендуется, ~47 КБ):**
+**Для агента (единственный вариант для шаринга, ~47 КБ):**
 
 ```text
 dist\quiet_11.21_agent.zip
@@ -230,15 +230,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1 -DryRun
 powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-**Прямой install-пакет (20 МБ):**
+Готовый payload/архивы модов **не передаются**. Python нужен только как локальный инструмент сборки DVPL; `install.ps1` работает без него.
 
-```powershell
-python tools\make_dist.py
-```
-
-Результат: `dist\quiet_11.21_install_11.21.0.zip`. Внутри готовый `payload/`, `manifest.json`, скрипты и `README.md`; ничего качать не нужно, но файл больше.
-
-Другу: закрыть игру, распаковать, запустить `install.ps1 -DryRun`, затем `install.ps1`. Если другой micropatch — `-SkipOverlay`. Агенту — `AGENT.md`.
+Другу: закрыть игру, распаковать kit, запустить `install.ps1 -DryRun`, затем `install.ps1`. Если другой micropatch — `-SkipOverlay`. Агенту — `AGENT.md`.
 
 После обновления игры пакет `11.21.0` не подойдёт: обновить `vendor/sound_mod` и `vendor/reticle` под новую версию, выполнить `tools/update.ps1`, затем снова `tools/make_dist.py` и пересобрать agent kit.
 
